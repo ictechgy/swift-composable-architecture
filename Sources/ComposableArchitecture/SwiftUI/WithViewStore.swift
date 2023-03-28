@@ -244,6 +244,14 @@ public struct WithViewStore<ViewState, ViewAction, Content: View>: View {
   ///   - isDuplicate: A function to determine when two `ViewState` values are equal. When values
   ///     are equal, repeat view computations are removed,
   ///   - content: A function that can generate content from a view store.
+  /// - Parameters:
+  ///   - store: 하나의 store.
+  ///   - toViewState: store state를 관찰가능한(observable) view state로 변환하는 함수.
+  ///               view state에 대한 모든 변경은 `WithViewStore`가 해당 뷰를 재계산(re-compute)하게 한다.
+  ///   - fromViewAction: view actions를 action으로 변환하는 함수
+  ///   - isDuplicate: 두 `ViewState` 값이 같은지 결정하는 함수.
+  ///               값이 같다면 뷰 재계산이 되지 않는다. (removed)
+  ///   - content: view store로부터 content를 만들어낼 수 있는 함수
   public init<State, Action>(
     _ store: Store<State, Action>,
     observe toViewState: @escaping (State) -> ViewState,

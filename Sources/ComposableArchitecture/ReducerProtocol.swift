@@ -162,14 +162,18 @@
   ///
   public protocol ReducerProtocol<State,Action> {
     /// A type that holds the current state of the reducer.
+    /// reducer의 현재 state를 가지고 있을 type
     associatedtype State
 
     /// A type that holds all possible actions that cause the ``State`` of the reducer to change
     /// and/or kick off a side ``EffectTask`` that can communicate with the outside world.
+    /// reducer의 ``State``를 변경시킬 모든 가능한 action들을 가지고 있는 type
+    /// 그리고/또는 바깥 세상과 커뮤니케이션할 수 있는 side ``EffectTask``를 시작시킬 type
     associatedtype Action
 
     // NB: For Xcode to favor autocompleting `var body: Body` over `var body: Never` we must use a
     //     type alias.
+    // NB: Xcode가 `var body: Never`가 아닌 `var body: Body`로 자동완성시키게 하려면 반드시 type alias를 써야 함
     associatedtype _Body
 
     /// A type representing the body of this reducer.
@@ -179,6 +183,11 @@
     ///
     /// If you create a custom reducer by implementing the ``reduce(into:action:)-8yinq``, Swift
     /// infers this type to be `Never`.
+    /// 이 reducer의 body를 나타내는 type
+    ///
+    /// ``body-swift.property-7foai``를 구현하여 커스텀 reducer를 만들면 Swift는 리턴되는 값을 통해 이 타입을 추론함
+    ///
+    /// 만약 ``reduce(into:action:)-8yinq``를 구현하여 커스텀 reducer를 만든다면 Swift는 이 타입을 `Never`로 추론함
     typealias Body = _Body
 
     /// Evolves the current state of the reducer to the next state.
