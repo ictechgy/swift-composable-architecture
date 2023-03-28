@@ -6,6 +6,9 @@ import Foundation
 ///
 /// You will typically construct a single one of these at the root of your application:
 ///
+/// store는 앱을 동작하게 하는 runtime을 나타낸다. 앱과 상호작용해야 하는 view들에 전달할 object이다.
+/// 일반적으로 앱의 root에서 이러한 object 중 하나를 만들 것이다. (다음과 같이)
+///
 /// ```swift
 /// @main
 /// struct MyApp: App {
@@ -24,6 +27,8 @@ import Foundation
 ///
 /// …and then use the ``scope(state:action:)`` method to derive more focused stores that can be
 /// passed to subviews.
+///
+/// 그리고 ``scope(state:action:)`` 메서드를 사용하여 subview들에 전달될 수 있는 보다 focus된 store를 도출하자. 
 ///
 /// ### Scoping
 ///

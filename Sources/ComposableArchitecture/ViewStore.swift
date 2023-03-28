@@ -9,6 +9,13 @@ import SwiftUI
 /// view. It can be initialized with a store and a closure that is handed a view store and returns a
 /// view:
 ///
+/// `ViewStore`는 state를 observe하고 action들을 send할 수 있는 object이다.
+/// `ViewStore`는 일반적으로 대부분 view에서 사용된다. (SwiftUI view, UIView, UIViewController와 같은)
+/// 하지만 state를 observe하고 action들을 send하는 것이 합당한 곳이라면 어디에서든지 사용될 수 있다.
+///
+/// SwiftUI 앱에서 `ViewStore`는 일반적으로 ``WithViewStore`` view를 이용하여 access된다.
+/// view store를 전달받고 view를 반환하는 store와 closure를 통해 initialize될 수 있다.
+///
 /// ```swift
 /// var body: some View {
 ///   WithViewStore(self.store, observe: { $0 }) { viewStore in
