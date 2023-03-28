@@ -10,6 +10,13 @@ import SwiftUI
 /// For example, the following view, which manually observes the store it is handed by constructing
 /// a view store in its initializer:
 ///
+/// view builder가 state를 관찰(observe)할 수 있도록 ``Store``를 ``ViewStore``로 변환하는  view helper
+///
+/// 이 helper는 view에서 수동으로 view store를 수동으로 observing하는대신 쓸 수 있는 대안(alternative)이다.
+/// 수동으로 관찰하는데에는 custom initializer 상용구(boilerplate) 코드가 필요하다.
+///
+/// 예를 들어, 다음 view는 initializer 안에서 view store를 만듬으로써 전달된 store를 수동으로 observe하고 있다.
+///
 /// ```swift
 /// struct ProfileView: View {
 ///   let store: Store<ProfileState, ProfileAction>
@@ -28,6 +35,7 @@ import SwiftUI
 /// ```
 ///
 /// …can be written more simply using `WithViewStore`:
+/// `WithViewStore`를 이용하여 간단하게 작성할 수 있다.
 ///
 /// ```swift
 /// struct ProfileView: View {
